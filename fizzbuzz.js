@@ -3,6 +3,10 @@
  * Unfortunately Javascript doesn't do this...
  */
 
+ /**
+ Making a change, dude.
+ */
+
 function arrayEquals(arr1, arr2) {
     return JSON.stringify(arr1) == JSON.stringify(arr2);
 }

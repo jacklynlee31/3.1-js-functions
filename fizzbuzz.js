@@ -2,9 +2,8 @@
  * This is used to test if arrays are equal...
  * Unfortunately Javascript doesn't do this...
  */
-
  /**
- Making a change, dude.
+ * Jacklyn's FizzBuzz
  */
 
 function arrayEquals(arr1, arr2) {
@@ -18,8 +17,8 @@ function arrayEquals(arr1, arr2) {
  * arguments and computes the sum of those two numbers.
  */
 
-function sum(a, b){
-    // YOUR CODE HERE
+function sum (a, b){
+	return (a + b);
 }
 
 console.assert(sum(8, 11) === 19);
@@ -32,9 +31,12 @@ console.assert(sum(4, 100) === 104);
  */
 
 function sumOfArray(arr){
-    var sum = 0
-    // YOUR CODE HERE
-    return sum
+    var sum = 0;
+    for (var i=0; i<arr.length; i++) {
+    	var current = arr[i];
+    	sum = arr [i] + sum;
+    }
+    return sum;
 }
 
 console.assert(sumOfArray([1, 2]) === 3);
@@ -52,7 +54,18 @@ console.assert(sumOfArray([10, 9, 8]) === 27);
  */
 
 function GCD(a, b){
-    // YOUR CODE HERE
+    var aDenoms = denominators(a);
+    var bDenoms = denominators(b);
+    var ret = 1;
+
+    // Loop
+    for (var i = 0; i < aDenoms.length, i++)
+    	if (bDenoms.indexOf() ___) {
+    		// Something with `ret`
+    	}
+
+    // End loop
+    return ret;
 }
 
 console.assert(GCD(5,1) === 1);

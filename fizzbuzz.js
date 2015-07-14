@@ -116,7 +116,12 @@ console.assert(GCD(50,20) === 10);
  */
 
 function LCM(a, b){
-    // YOUR CODE HERE
+
+    if (a === 0 || b === 0) {
+        return 1;
+    } else {
+        return a * b / GCD (a,b);
+    }
 }
 
 console.assert(LCM(10,10) === 10);

@@ -60,10 +60,10 @@ function GCD(a, b){
 
     // Loop
     for (var i = 0; i < aDenoms.length, i++)
-    	if (bDenoms.indexOf() ___) {
+    	var current = aDenoms[1];
+    	if (bDenoms.indexOf(ret) != -1); {
     		// Something with `ret`
     	}
-
     // End loop
     return ret;
 }
@@ -99,11 +99,24 @@ console.assert(LCM(0,1) === 1)
  */
 
 function fizzbuzz(N){
-    // YOUR CODE HERE
+	var results = "";
+	for (var i = 1; i <= N; i++) {
+		if (i % 3 !== 0 && i % 5 !== 0) {
+			results += ".";
+			}
+		else if (i % 3 === 0 && i % 5 !== 0) {
+			results += "fizz";
+			}
+		else if (i % 5 === 0 && i % 3 !== 0) {
+			results += "buzz";
+			}
+		else results += "fizzbuzz";
+	}
+    return results;
 }
 
-console.assert(fizzbuzz(1) === ".")
-console.assert(fizzbuzz(2) === "..")
-console.assert(fizzbuzz(3) === "..fizz")
-console.assert(fizzbuzz(5) === "..fizz.buzz")
-console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz")
+console.assert(fizzbuzz(1) === ".");
+console.assert(fizzbuzz(2) === "..");
+console.assert(fizzbuzz(3) === "..fizz");
+console.assert(fizzbuzz(5) === "..fizz.buzz");
+console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz");

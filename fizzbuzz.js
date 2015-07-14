@@ -8,14 +8,49 @@ function arrayEquals(arr1, arr2) {
 }
 
 /**
+ * denominators - function
+ *
+ * This function should take in one number
+ * and return an array of all of its denominators
+ */
+function denominators(num) {
+    var denoms = [];
+
+    for (var x = 1; x <= num; x++) {
+        if (num % x === 0) {
+            denoms.push(x);
+        }
+    }
+
+    return denoms;
+}
+
+console.assert(arrayEquals(denominators(1), [1]));
+console.assert(arrayEquals(denominators(3), [1, 3]));
+console.assert(arrayEquals(denominators(4), [1, 2, 4]));
+console.assert(arrayEquals(denominators(24), [1, 2, 3, 4, 6, 8, 12, 24]));
+
+/**
+ * This is used to test if arrays are equal...
+ * Unfortunately Javascript doesn't do this...
+ */
+ /**
+ * Jacklyn's FizzBuzz
+ */
+
+function arrayEquals(arr1, arr2) {
+    return JSON.stringify(arr1) == JSON.stringify(arr2);
+}
+
+/**
  * PART 0
  *
  * Write a function that takes two numbers as
  * arguments and computes the sum of those two numbers.
  */
 
-function sum(a, b){
-    // YOUR CODE HERE
+function sum (a, b){
+    return (a + b);
 }
 
 console.assert(sum(8, 11) === 19);
@@ -28,9 +63,12 @@ console.assert(sum(4, 100) === 104);
  */
 
 function sumOfArray(arr){
-    var sum = 0
-    // YOUR CODE HERE
-    return sum
+    var sum = 0;
+    for (var i=0; i<arr.length; i++) {
+        var current = arr[i];
+        sum = arr [i] + sum;
+    }
+    return sum;
 }
 
 console.assert(sumOfArray([1, 2]) === 3);
@@ -48,13 +86,28 @@ console.assert(sumOfArray([10, 9, 8]) === 27);
  */
 
 function GCD(a, b){
-    // YOUR CODE HERE
+    var aDenoms = denominators(a);
+    var bDenoms = denominators(b);
+    var ret;
+
+    // Loop
+    for (var i = 0; i < aDenoms.length; i++) {
+        var current = aDenoms[i];
+
+        if (bDenoms.indexOf(current) !== -1) {
+            ret = current;
+        }
+    }
+
+    // End loop
+    return ret;
 }
 
 console.assert(GCD(5,1) === 1);
 console.assert(GCD(15,3) === 3);
 console.assert(GCD(15,5) === 5);
 console.assert(GCD(50,20) === 10);
+
 
 /**
  * PART 3
@@ -63,13 +116,18 @@ console.assert(GCD(50,20) === 10);
  */
 
 function LCM(a, b){
-    // YOUR CODE HERE
+
+    if (a === 0 || b === 0) {
+        return 1;
+    } else {
+        return a * b / GCD (a,b);
+    }
 }
 
-console.assert(LCM(10,10) === 10)
-console.assert(LCM(2,5) === 10)
-console.assert(LCM(3,6) === 6)
-console.assert(LCM(0,1) === 1)
+console.assert(LCM(10,10) === 10);
+console.assert(LCM(2,5) === 10);
+console.assert(LCM(3,6) === 6);
+console.assert(LCM(0,1) === 1);
 
 /**
  * Part 4
@@ -82,11 +140,24 @@ console.assert(LCM(0,1) === 1)
  */
 
 function fizzbuzz(N){
-    // YOUR CODE HERE
+    var results = "";
+    for (var i = 1; i <= N; i++) {
+        if (i % 3 !== 0 && i % 5 !== 0) {
+            results += ".";
+            }
+        else if (i % 3 === 0 && i % 5 !== 0) {
+            results += "fizz";
+            }
+        else if (i % 5 === 0 && i % 3 !== 0) {
+            results += "buzz";
+            }
+        else results += "fizzbuzz";
+    }
+    return results;
 }
 
-console.assert(fizzbuzz(1) === ".")
-console.assert(fizzbuzz(2) === "..")
-console.assert(fizzbuzz(3) === "..fizz")
-console.assert(fizzbuzz(5) === "..fizz.buzz")
-console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz")
+console.assert(fizzbuzz(1) === ".");
+console.assert(fizzbuzz(2) === "..");
+console.assert(fizzbuzz(3) === "..fizz");
+console.assert(fizzbuzz(5) === "..fizz.buzz");
+console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz");
